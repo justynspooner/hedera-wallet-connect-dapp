@@ -17,6 +17,7 @@ export default function ClientComponent() {
 
   useEffect(() => {
     const setupWalletConnect = async () => {
+      console.log("Loading Hedera Wallet Connect...");
       const {
         DAppConnector,
         HederaJsonRpcMethod,
@@ -24,6 +25,7 @@ export default function ClientComponent() {
         HederaChainId,
       } = await import("@hashgraph/hedera-wallet-connect");
 
+      console.log("Initializing Hedera Wallet Connect...");
       const dAppConnector = new DAppConnector(
         dAppMetadata,
         LedgerId.TESTNET,
@@ -33,7 +35,11 @@ export default function ClientComponent() {
         [HederaChainId.Testnet]
       );
 
+      console.log("Connecting Hedera Wallet Connect...");
+
       await dAppConnector.init({ logger: "error" });
+
+      console.log("Hedera Wallet Connect Initialized");
 
       setIsInitialized(true);
     };
