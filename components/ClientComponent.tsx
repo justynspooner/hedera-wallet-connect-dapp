@@ -1,12 +1,5 @@
 "use client";
 
-import {
-  DAppConnector,
-  HederaChainId,
-  HederaJsonRpcMethod,
-  HederaSessionEvent,
-} from "@hashgraph/hedera-wallet-connect";
-
 import { useEffect, useState } from "react";
 
 const dAppMetadata = {
@@ -26,6 +19,14 @@ export default function ClientComponent() {
       console.log("Loading Hedera Wallet Connect...");
 
       console.log("Initializing Hedera Wallet Connect...");
+
+      const {
+        DAppConnector,
+        HederaJsonRpcMethod,
+        HederaSessionEvent,
+        HederaChainId,
+      } = await import("@hashgraph/hedera-wallet-connect");
+
       const dAppConnector = new DAppConnector(
         dAppMetadata,
         // @ts-ignore
