@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@hashgraph/hedera-wallet-connect": "file:../hedera-wallet-connect",
+    "@hashgraph/hedera-wallet-connect": "1.2.0",
     "next": "14.2.4",
     "react": "^18",
     "react-dom": "^18"
